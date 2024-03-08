@@ -39,4 +39,7 @@ def contact(request):
 def base(request):
   return render(request,'base.html') 
 
+def login1(request):
+  return render(request,'login1.html') 
+
     

@@ -626,7 +626,7 @@ a:focus {
 }
 
 .about_section .detail-box p {
-  color: #1f1f1f;
+  color: black;
   margin-top: 15px;
 }
 
@@ -1002,4 +1002,3 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
-/*# sourceMappingURL=style.css.map */
