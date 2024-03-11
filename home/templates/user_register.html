@@ -80,28 +80,32 @@
   </style>
 
   <!-- slider section -->
+
+  
   <div class="login-form-container">
     <input type="checkbox" id="check" />
     <div class="login form">
       <header>Login</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email" />
-        <input type="password" placeholder="Enter your password" />
+      <form action="/user_login/" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your email" />
+        <input type="password" name="password" placeholder="Enter your password" />
         <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login" />
+        <input type="submit" class="button" value="Login" />
       </form>
      
     </div>
     <div class="registration form">
       <header>Signup</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email" />
-        <input type="text" placeholder="Enter your email" />
-        <input type="text" placeholder="Enter your email" />
-        <input type="password" placeholder="Create a password" />
-        <input type="password" placeholder="Confirm your password" />
-        <input type="button" class="button" value="Signup" />
-      </form>
+      <form action="#" method="post">
+        {% csrf_token %}
+        <input type="text" name="fullname" placeholder="Enter your name" />
+        <input type="number" name="number" placeholder="Enter your number" />
+        <input type="text" name="username" placeholder="Enter your email" />
+        <input type="password" name="password" placeholder="Create a password" />
+        <input type="password" name="confirm_password" placeholder="Confirm your password" />
+        <input type="submit" class="button" value="Signup" />
+    </form>
      
     </div>
   </div>
