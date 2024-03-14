@@ -5,14 +5,21 @@ from django.contrib import messages
 
 from django.http import HttpResponse
 
+def base(request):
+  return render(request,'base.html') 
+
+
 def user_register(request): 
     if request.method=="POST":
         fullname = request.POST.get('fullname')
+        mobile = request.POST.get('mobile')
         username = request.POST.get('username')
         password = request.POST.get('password')
         
         user = User.objects.create_user(username=username, password=password)
         user.fullname = fullname  
+        user.mobile = mobile  
+        
         user.save()
     return render(request,'user_register.html')
 
@@ -25,16 +32,17 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return render(request,'index.html')
         else:
-            # Add an error message for incorrect credentials
+            
             messages.error(request, 'Invalid username or password. Please try again.')
-            return redirect('user_register')  # Redirect back to the login page
-
+            return redirect('user_register')  
     else:
         return render(request, 'user_register.html')
 
-
+def user_logout(request):
+    logout(request)
+    return redirect('/')
 
 
 
@@ -50,8 +58,6 @@ def team(request):
 def contact(request):
   return render(request,'contact.html')   
 
-def base(request):
-  return render(request,'base.html') 
 
 
     

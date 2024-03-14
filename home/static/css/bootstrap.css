@@ -544,7 +544,7 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-
+/* Note   added white color in team*/
 .container {
   width: 100%;
   padding-right: 15px;

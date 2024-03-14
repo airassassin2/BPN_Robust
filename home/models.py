@@ -1,9 +1,17 @@
 from django.db import models
 
 
+class User(models.Model):
+    fullname=models.CharField(max_length=50)
+    mobile=models.CharField(max_length=10)
+    username=models.EmailField()
+    password=models.CharField(max_length=100)
+
+
+
 class Doctor(models.Model):
     name=models.CharField(max_length=50)
-    mobile=models.IntegerField(max_length=10)
+    mobile=models.CharField(max_length=10)
     speciality=models.CharField(max_length=50)
 
     def __str__(self) -> str:
@@ -13,7 +21,7 @@ class Doctor(models.Model):
 
 class Patient(models.Model):
     name=models.CharField(max_length=50)
-    mobile=models.IntegerField(max_length=10)
+    mobile=models.CharField(max_length=10)
     address=models.CharField(max_length=50)
     email=models.EmailField(max_length=50)
 
@@ -35,7 +43,7 @@ class Appointment(models.Model):
 
 class Restaurant(models.Model):
     restaurant_name=models.CharField(max_length=50)
-    mobile=models.IntegerField(max_length=10)
+    mobile=models.CharField(max_length=10)
     address=models.CharField(max_length=100)
     speciality=models.CharField(max_length=100)
 
@@ -66,7 +74,7 @@ class Restaurant_appointment(models.Model):
 
 class Salon(models.Model):
     salon_name=models.CharField(max_length=100)
-    mobile=models.IntegerField(max_length=10)
+    mobile=models.CharField(max_length=10)
     address=models.CharField(max_length=100)
     speciality=models.CharField(max_length=100)
 
