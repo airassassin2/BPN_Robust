@@ -87,18 +87,22 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/contact/">Contact Us</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/register/"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
-                  </li>
-                 
-                  <form class="form-inline justify-content-center">
+                  
+                  <form class="form-inline ">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                      <span style="color: white; font-size: 17px;">{{ request.user.username }}</span>
-                      <a href="/logout" class="btn btn-outline-danger ml-2">Logout</a>
+                      <a class="nav-link" href="">Appointment</a>
                     </li>
-                       
+                    
+                    <li class="nav-item">
+                      <span style="color: white; font-size: 17px;">{{ request.user.username }}</span>
+                      <a href="/logout" class="btn btn-outline-danger ml-1">Logout</a>
+                    </li>
+                    
                     {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="/register/"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                    </li>
                         <li class="nav-item">
                           <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </li>
