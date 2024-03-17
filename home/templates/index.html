@@ -4,6 +4,17 @@
 <!-- slider section -->
 
 {% block body %}
+<hr>
+{% if messages %}
+  {% comment %} {{ message.tags }} {% endcomment %}
+ <div class="alert alert-primary" role="alert">
+   <ul class="messages">
+     {% for message in messages %}
+     {{ message }}
+     {% endfor %}
+ </div>
+ {% endif %} 
+
   <section class="slider_section">
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -18,7 +29,7 @@
                   </h1>
                   <p>"Book appointments made easy with BPN, your all-in-one scheduling solution"</p>
                   <div class="btn-box">
-                    <a href="contact.html" class="btn1">Contact Us</a>
+                    <a href="/contact/" class="btn1">Contact Us</a>
                   </div>
                 </div>
               </div>

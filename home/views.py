@@ -16,14 +16,23 @@ def user_register(request):
         mobile = request.POST.get('mobile')
         username = request.POST.get('username')
         password = request.POST.get('password')
+
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Login successfull.")
+            return render(request,'index.html')
         
-        user = User.objects.create_user(username=username, password=password)
-        user.fullname = fullname  
-        user.mobile = mobile  
         
-        user.save()
+        else:
+          user = User.objects.create_user(username=username, password=password)
+          user.fullname = fullname  
+          user.mobile = mobile  
+          
+          user.save()
+        
     return render(request,'user_register.html')
-@never_cache
+# @never_cache
 def user_login(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -33,9 +42,10 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, "Login successfull.")
             return render(request,'index.html')
-        else:
             
+        else:
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('user_register')  
     else:
