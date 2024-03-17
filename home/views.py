@@ -62,6 +62,8 @@ def contact(request):
 def appointment(request):
   return render(request,'appointment.html')   
 
+def dashboard(request):
+  return render(request,'dashboard.html')
 
 
     
