@@ -1004,16 +1004,3 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
-
-/* displaying alert message  */
-.alert-primary {
-  height: 51px;
-  /* text-align: center; */
-  margin: auto;
-  display: flex;
-  /* align-items: center; */
-  width: 30em;
-  color: #004085;
-  background-color: #cce5ff;
-  border-color: #b8daff;
-}
