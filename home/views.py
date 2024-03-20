@@ -11,27 +11,34 @@ def base(request):
 
 
 def user_register(request): 
-    if request.method=="POST":
+    if request.method == "POST":
         fullname = request.POST.get('fullname')
         mobile = request.POST.get('mobile')
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+        # Check if a user with the provided username already exists
+        existing_user = User.objects.filter(username=username)
 
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Login successfull.")
-            return render(request,'index.html')
-        
+        if existing_user:
+            # login(request, existing_user)
+            messages.success(request, "User already register .")
+            return redirect('user_register')  # Redirect to the index page after successful login
         
         else:
-          user = User.objects.create_user(username=username, password=password)
-          user.fullname = fullname  
-          user.mobile = mobile  
-          
-          user.save()
-        
-    return render(request,'user_register.html')
+            # Create a new user
+            user = User.objects.create_user(username=username, password=password)
+            user.full_name = fullname
+            user.mobile = mobile
+            user.save()
+
+            # Log in the newly created user
+            login(request, user)
+            messages.success(request, "Account created and logged in successfully.")
+            return redirect('index')  # Redirect to the index page after successful creation and login
+
+    # Render the registration form template for GET requests
+    return render(request, 'user_register.html')
 # @never_cache
 def user_login(request):
     if request.method == "POST":
