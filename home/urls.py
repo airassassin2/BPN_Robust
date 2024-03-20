@@ -14,4 +14,5 @@ urlpatterns = [
     path('appointment/', views.appointment,name="appointment"),
     
     path('dashboard/', views.dashboard,name="dashboard"),
+    path('adminpanel/', views.adminpanel,name="adminpanel"),
 ]

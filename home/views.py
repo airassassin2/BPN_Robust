@@ -3,8 +3,11 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
+from django.contrib.auth.models import *
 
 from django.http import HttpResponse
+
+from home.models import *
 
 def base(request):
   return render(request,'base.html') 
@@ -81,6 +84,9 @@ def appointment(request):
 
 def dashboard(request):
   return render(request,'dashboard.html')
+def adminpanel(request):
+  doctors = Appointment.objects.all()
+  return render(request, 'adminpanel.html', {'doctors': doctors})
 
 
     
