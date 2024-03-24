@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body  %}
-
-<section id="menu">
-    <div class="logo">
-        <h2>MENU</h2>
-    </div>
-    <div class="item">
-        <li><i class="fad fa-chart-pie-alt"></i></li>
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+<section class="about_section layout_padding" style="background-color: white; padding: 0px 0;">
+    <div class="container1">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Options</h2>
+                <button class="hamburger" id="hamburger">&#9776;</button>
+            </div>
+            <ul>
+                <li class="active"><a href="#">Dashboard</a></li>
+                <li><a href="#">Appointments</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Appointments Dashboard</h1>
+            <div class="appointments">
+                <h2>Appointments</h2>
+                <ul id="appointmentsList"></ul>
+                <button id="addAppointmentBtn">Add Appointment</button>
+            </div>
+        </div>
     </div>
 </section>
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock body  %}
