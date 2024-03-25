@@ -104,29 +104,26 @@ def appointment(request):
         date = request.POST.get('date')
         time = request.POST.get('time')
 
+        # Check if the Doctor and Patient instances exist
         try:
-            # Get the Doctor and Patient instances that correspond to the doctor_name and patient_name
-            doctor = Doctor.objects.get(doctor_name=doctor_name)  # Adjusted query here
-            patient = Patient.objects.get(patient_name=patient_name)
+            doctor = Doctor.objects.get(doctor_name=doctor_name)
+            patient, created = Patient.objects.get_or_create(patient_name=patient_name)
 
-            # Create and save the Appointment instance
-            appointment = Appointment(patient=patient, doctor=doctor, appointment_date=date, appointment_time=time)
-            appointment.save()
-            print("Doctor Name:", doctor_name)
-            print("Patient Name:", patient_name)
-            print("Date:", date)
-            print("Time:", time)
-            
-
-            return redirect('appointment')  # Redirect to the appointment page after successful form submission
         except ObjectDoesNotExist:
-            # Handle the case where the Doctor or Patient does not exist
             return render(request, 'appointment.html', {'message': 'Doctor or Patient does not exist'})
 
-    # Pass the list of doctors to the template for rendering the dropdown
+        # Create and save the Appointment instance
+        appointment = Appointment(patient=patient, doctor=doctor, appointment_date=date, appointment_time=time)
+        appointment.save()
+
+        print("Doctor Name:", doctor_name)
+        print("Patient Name:", patient_name)
+        print("Date:", date)
+        print("Time:", time)
+
+        return redirect('appointment') 
     doctors = Doctor.objects.all()
     return render(request, 'appointment.html', {'doctors': doctors})
-
 
 def sendemailtoclient():
     subject="Message testing of email from Perwez"            
