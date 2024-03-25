@@ -3,12 +3,12 @@
 <div class="container">
     
     
-    <form class="card p-4 mx-auto" method="post">
+    <form class="card p-4 mx-auto" method="post" action="{% url 'appointment' %}">
         {% csrf_token %}
         <select class="form-select" name="doctor" aria-label="Default select example">
             <option selected>Select Doctor</option>
-            {% for doctor in doc %}
-            <option  value="{{ doctor.name }}">{{ doctor.name }}</option>
+            {% for doctor in doctors %}
+            <option  value="{{ doctor.doctor_name }}">{{ doctor.doctor_name }}</option>
             {% endfor %}
         </select>
       

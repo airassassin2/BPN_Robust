@@ -82,9 +82,9 @@ def team(request):
 def contact(request):
   return render(request,'contact.html')   
 
-def appointment(request):
-  doc=Doctor.objects.all()
-  return render(request,'appointment.html',{'doc': doc})   
+# def appointment(request):
+#   doc=Doctor.objects.all()
+#   return render(request,'appointment.html',{'doc': doc})   
 
 def dashboard(request):
   return render(request,'dashboard.html')
@@ -94,25 +94,38 @@ def adminpanel(request):
   return render(request, 'adminpanel.html', {'doctors': doctors})
 
 
-from django.shortcuts import render, redirect
-from .models import Patient
+from django.core.exceptions import ObjectDoesNotExist
+from .models import Appointment, Doctor, Patient
 
-def patient_form(request):
+def appointment(request):
     if request.method == 'POST':
-        
-        doctor = request.POST.get('doctor')
-        name = request.POST.get('name')
+        doctor_name = request.POST.get('doctor')
+        patient_name = request.POST.get('name')
         date = request.POST.get('date')
         time = request.POST.get('time')
 
-        
-        patient = Appointment(name=name, doctor=doctor, appointment_date=date, appointment_time=time)
-        patient.save()
-        
-        return redirect('appointment') 
+        try:
+            # Get the Doctor and Patient instances that correspond to the doctor_name and patient_name
+            doctor = Doctor.objects.get(doctor_name=doctor_name)  # Adjusted query here
+            patient = Patient.objects.get(patient_name=patient_name)
 
-    return render(request, 'appointment.html')
+            # Create and save the Appointment instance
+            appointment = Appointment(patient=patient, doctor=doctor, appointment_date=date, appointment_time=time)
+            appointment.save()
+            print("Doctor Name:", doctor_name)
+            print("Patient Name:", patient_name)
+            print("Date:", date)
+            print("Time:", time)
+            
 
+            return redirect('appointment')  # Redirect to the appointment page after successful form submission
+        except ObjectDoesNotExist:
+            # Handle the case where the Doctor or Patient does not exist
+            return render(request, 'appointment.html', {'message': 'Doctor or Patient does not exist'})
+
+    # Pass the list of doctors to the template for rendering the dropdown
+    doctors = Doctor.objects.all()
+    return render(request, 'appointment.html', {'doctors': doctors})
 
 
 def sendemailtoclient():

@@ -15,23 +15,23 @@ from django.contrib.auth.models import User
 
 
 class Doctor(models.Model):
-    name=models.CharField(max_length=50)
+    doctor_name=models.CharField(max_length=50)
     mobile=models.CharField(max_length=10)
     speciality=models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return self.name
+        return self.doctor_name
 
 
 
 class Patient(models.Model):
-    name=models.CharField(max_length=50)
+    patient_name=models.CharField(max_length=50)
     mobile=models.CharField(max_length=10)
     address=models.CharField(max_length=50)
     email=models.EmailField(max_length=50)
 
     def __str__(self) -> str:
-        return self.name
+        return self.patient_name
 
 
 class Appointment(models.Model):
@@ -41,7 +41,7 @@ class Appointment(models.Model):
     appointment_time=models.TimeField()
 
     def __str__(self) -> str:
-        return self.doctor.name+ " ---> " +self.patient.name
+        return self.doctor.doctor_name+ " ---> " +self.patient.patient_name
        
 
 
