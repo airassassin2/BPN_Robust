@@ -15,6 +15,5 @@ urlpatterns = [
     
     path('dashboard/', views.dashboard,name="dashboard"),
     path('adminpanel/', views.adminpanel,name="adminpanel"),
-    path('send_email/', views.send_email, name="send_email"),
-
+    
 ]
