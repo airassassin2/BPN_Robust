@@ -90,7 +90,9 @@ def dashboard(request):
   return render(request,'dashboard.html')
 def adminpanel(request):
   
-  doctors = Appointment.objects.all()
+ 
+  doctors = Appointment.objects.all().order_by('id').reverse()
+
   return render(request, 'adminpanel.html', {'doctors': doctors})
 
 
@@ -116,11 +118,6 @@ def appointment(request):
         appointment = Appointment(patient=patient, doctor=doctor, appointment_date=date, appointment_time=time)
         appointment.save()
 
-        print("Doctor Name:", doctor_name)
-        print("Patient Name:", patient_name)
-        print("Date:", date)
-        print("Time:", time)
-
         return redirect('appointment') 
     doctors = Doctor.objects.all()
     return render(request, 'appointment.html', {'doctors': doctors})
@@ -129,7 +126,7 @@ def sendemailtoclient():
     subject="Message testing of email from Perwez"            
     messages="Testing for the reminder for Appointment"
     from_email=settings.EMAIL_HOST_USER
-    recipient_list=["perwezakhtar29@gmail.com"]
+    recipient_list=["kjflajf@gmail.com"]
     send_mail(subject,messages,from_email,recipient_list)
 
 def send_email(request):
