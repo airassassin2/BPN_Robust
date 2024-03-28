@@ -14,6 +14,8 @@ from home.models import *
 
 def base(request):
   return render(request,'base.html') 
+def base1(request):
+  return render(request,'base1.html') 
 
 # @send_mail
 def user_register(request): 
@@ -88,6 +90,8 @@ def contact(request):
 
 def dashboard(request):
   return render(request,'dashboard.html')
+def calender(request):
+  return render(request,'calendar.html')
 def adminpanel(request):
   
  

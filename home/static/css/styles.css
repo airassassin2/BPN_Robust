@@ -23128,3 +23128,26 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+ /* calender css*/
+
+ .calendar {
+  table-layout: fixed;
+  width: 100%;
+}
+.calendar th,
+.calendar td {
+  text-align: center;
+  padding: 10px;
+}
+.calendar .today {
+  background-color: #f0f0f0;
+}
+.calendar .selected {
+  background-color: #007bff;
+  color: #fff;
+}
+.navigation-btns {
+  margin-bottom: 20px;
+}
+
+  /*end */
