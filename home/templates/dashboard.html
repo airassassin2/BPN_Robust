@@ -1,133 +1,130 @@
 {% extends 'base1.html' %}
-{% block title %}Dashboard{% endblock %}
-   {% load static %}    
-          {% block body %}
-     
-          <div class="row">
-            <div class="col-md-7 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Appointment Details</p>
-                  <p class="mb-4"><ul><li>9:00 AM, Meeting with Doctor Krishna Mehra, [Full Address] Mumbai</li></ul></p>
-                  <h2 class="text-center mt-5">Trending Appointments</h2>
-                  <div class="container">
-                    <canvas id="appointmentChart" width="400" height="200"></canvas>
-                  </div>
-                  {% comment %} <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div> {% endcomment %}
-                  {% comment %} <canvas id="cash-deposits-chart"></canvas> {% endcomment %}
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Total Expenses Stats</p>
-                  <h1>Rs. 12000</h1>
-                  <h4>Gross Expenses over the Week</h4>
-                  <p class="text-muted">Here you can analyse your total expenses from past. </p>                
-                
-                <canvas id="expensesChart"></canvas></div>
-              </div>
-            </div>
+{% comment %} {% block title %}
+  Dashboard
+{% endblock %} {% endcomment %}
+{% load static %}
+{% block body %}
+  <div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Appointment Details</p>
+          <p class="mb-4">
+            <ul>
+              <li>9:00 AM, Meeting with Doctor Krishna Mehra, [Full Address] Mumbai</li>
+            </ul>
+          </p>
+          <h2 class="text-center mt-5">Trending Appointments</h2>
+          <div class="container">
+            <canvas id="appointmentChart" width="400" height="200"></canvas>
           </div>
-          <div class="row">
-            <div class="col-md-12 stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Recent Appointments</p>
-                  <div class="table-responsive">
-                    <table id="recent-purchases-listing" class="table">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Status report</th>
-                          <th>Address</th>
-                          <th>Price</th>
-                          <th>Date</th>
-                          <th>Gross amount</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Ramesh Kumar</td>
-                          <td>Confirmed</td>
-                          <td>Lucknow, Uttar Pradesh</td>
-                          <td>₹790</td>
-                          <td>06 Jan 2023</td>
-                          <td>₹1200</td>
-                        </tr>
-                        <tr>
-                          <td>Alka Gupta</td>
-                          <td>Pending</td>
-                          <td>Patna, Bihar</td>
-                          <td>₹2323</td>
-                          <td>18 Jul 2023</td>
-                          <td>₹2000</td>
-                        </tr>
-                        <tr>
-                          <td>Vijay Singh</td>
-                          <td>Cancelled</td>
-                          <td>Jaipur, Rajasthan</td>
-                          <td>₹939</td>
-                          <td>16 Jul 2023</td>
-                          <td>₹1300</td>
-                        </tr>
-                        <tr>
-                          <td>Divya Sharma</td>
-                          <td>Confirmed</td>
-                          <td>Bangalore, Karnataka</td>
-                          <td>₹300</td>
-                          <td>30 Apr 2024</td>
-                          <td>₹1700</td>
-                        </tr>
-                        <tr>
-                          <td>Mukesh Patel</td>
-                          <td>Pending</td>
-                          <td>Mumbai, Maharashtra</td>
-                          <td>₹571</td>
-                          <td>25 Jun 2024</td>
-                          <td>₹1500</td>
-                        </tr>
-                        <tr>
-                          <td>Shilpa Verma</td>
-                          <td>Cancelled</td>
-                          <td>Hyderabad, Telangana</td>
-                          <td>₹36</td>
-                          <td>05 Nov 2023</td>
-                          <td>₹1800</td>
-                        </tr>
-                        <tr>
-                          <td>Rahul Tiwari</td>
-                          <td>Confirmed</td>
-                          <td>Chennai, Tamil Nadu</td>
-                          <td>₹314</td>
-                          <td>12 Jul 2023</td>
-                          <td>₹1400</td>
-                        </tr>
-                        <tr>
-                          <td>Kavita Singh</td>
-                          <td>Pending</td>
-                          <td>Kolkata, West Bengal</td>
-                          <td>₹484</td>
-                          <td>08 Sep 2024</td>
-                          <td>₹1200</td>
-                        </tr>
-                        <tr>
-                          <td>Kavita Singh</td>
-                          <td>Pending</td>
-                          <td>Kolkata, West Bengal</td>
-                          <td>₹484</td>
-                          <td>08 Sep 2024</td>
-                          <td>₹1200</td>
-                        </tr>                        
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {% comment %} <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div> {% endcomment %}
+          {% comment %} <canvas id="cash-deposits-chart"></canvas> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Total Expenses Stats</p>
+          <h1>Rs. 12000</h1>
+          <h4>Gross Expenses over the Week</h4>
+          <p class="text-muted">Here you can analyse your total expenses from past.</p>
+
+          <canvas id="expensesChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Recent Appointments</p>
+          <div class="container">
+            <h2>Doctor Appointment</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Doctor</th>
+                  <th>Patient</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for doctor in doctors %}
+                  <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>Dr. {{ doctor.doctor }}</td>
+                    <td>{{ doctor.patient }}</td>
+                    <td>{{ doctor.appointment_date }}</td>
+                    <td>{{ doctor.appointment_time }}</td>
+
+                    <!-- Add more columns as needed -->
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="container">
+            <h2>Restaurant Appointment</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Restaurant</th>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for restaurant_name in restaurant_name %}
+                  <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ restaurant_name.restaurant_name }}</td>
+                    <td>{{ restaurant_name.name }}</td>
+                    <td>{{ restaurant_name.appointment_date }}</td>
+                    <td>{{ restaurant_name.appointment_time }}</td>
+
+                    <!-- Add more columns as needed -->
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="container">
+            <h2>Salon Appointment</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Salon Name</th>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for salon in salon %}
+                  <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ salon.salon_name }}</td>
+                    <td>{{ salon.name }}</td>
+                    <td>{{ salon.appointment_date }}</td>
+                    <td>{{ salon.appointment_time }}</td>
+
+                    <!-- Add more columns as needed -->
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
         </div>
-        <!-- content-wrapper ends -->
+      </div>
+    </div>
+  </div>
 
-        {% endblock %}
+ {% endblock %}

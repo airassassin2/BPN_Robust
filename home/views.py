@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.models import *
 from django.core.mail import send_mail
+from home.models import *
 
 
 from django.http import HttpResponse
@@ -94,7 +95,11 @@ def notification(request):
 #   return render(request,'appointment.html',{'doc': doc})   
 
 def dashboard(request):
-  return render(request,'dashboard.html')
+  doctors = Appointment.objects.all().order_by('id').reverse()
+  restaurant_name=Restaurant_appointment.objects.all().order_by('id').reverse()
+  salon=Salon_appointment.objects.all().order_by('id').reverse()
+
+  return render(request, 'dashboard.html', {'doctors': doctors,'restaurant_name':restaurant_name,'salon':salon})
 def calender(request):
   return render(request,'calendar.html')
 def adminpanel(request):
