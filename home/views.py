@@ -83,7 +83,12 @@ def team(request):
   return render(request,'team.html')    
 def contact(request):
   return render(request,'contact.html')   
-
+def profile(request):  
+ return render(request,'profile.html')
+def setting(request):  
+ return render(request,'setting.html')
+def notification(request):  
+ return render(request,'notification.html')
 # def appointment(request):
 #   doc=Doctor.objects.all()
 #   return render(request,'appointment.html',{'doc': doc})   
@@ -93,11 +98,8 @@ def dashboard(request):
 def calender(request):
   return render(request,'calendar.html')
 def adminpanel(request):
-  
- 
-  doctors = Appointment.objects.all().order_by('id').reverse()
-
-  return render(request, 'adminpanel.html', {'doctors': doctors})
+    doctors = Appointment.objects.all().order_by('id').reverse()
+    return render(request, 'adminpanel.html', {'doctors': doctors})
 
 
 from django.core.exceptions import ObjectDoesNotExist

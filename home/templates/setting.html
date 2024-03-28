@@ -1,0 +1,121 @@
+{% extends 'base1.html' %}
+{% block title %}Setting{% endblock %}
+{% block body %}
+{% load static %}
+
+
+<div class="container">
+    <h1 class="mt-4 mb-4">Appointment System Settings</h1>
+    
+    <form>
+        <!-- General Settings Section -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">General Settings</h2>
+                <div class="form-group row">
+                    <label for="appointmentDuration" class="col-sm-3 col-form-label">Appointment Duration (minutes):</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="appointmentDuration" value="30">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="maxAppointmentsPerUser" class="col-sm-3 col-form-label">Max Appointments Per User:</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="maxAppointmentsPerUser" value="5">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="timeZone" class="col-sm-3 col-form-label">Time Zone:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="timeZone">
+                            <option value="UTC-12:00">(UTC-12:00) International Date Line West</option>
+                            <option value="UTC-11:00">(UTC-11:00) Coordinated Universal Time-11</option>
+                            <option value="UTC-10:00">(UTC-10:00) Hawaii</option>
+                            <option value="UTC-09:00">(UTC-09:00) Alaska</option>
+                            <option value="UTC-08:00">(UTC-08:00) Pacific Time (US & Canada)</option>
+                            <option value="UTC-07:00">(UTC-07:00) Mountain Time (US & Canada)</option>
+                            <option value="UTC-06:00">(UTC-06:00) Central Time (US & Canada)</option>
+                            <option value="UTC-05:00">(UTC-05:00) Eastern Time (US & Canada)</option>
+                            <!-- Add more time zone options as needed -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="workingHours" class="col-sm-3 col-form-label">Working Hours:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="workingHours" placeholder="e.g., 9:00 AM - 5:00 PM">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="appointmentTypes" class="col-sm-3 col-form-label">Appointment Types:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="appointmentTypes" placeholder="e.g., Consultation, Follow-up, Treatment">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cancellationPolicy" class="col-sm-3 col-form-label">Cancellation Policy:</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="cancellationPolicy" rows="3" placeholder="Enter cancellation policy details..."></textarea>
+                    </div>
+                </div>
+                <!-- Add more general settings options as needed -->
+            </div>
+        </div>
+
+        <!-- Notification Settings Section -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Notification Settings</h2>
+                <div class="form-group">
+                    <label for="emailNotifications">Email Notifications:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                        <label class="form-check-label" for="emailNotifications">
+                            Receive notifications via email
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="smsNotifications">SMS Notifications:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="smsNotifications">
+                        <label class="form-check-label" for="smsNotifications">
+                            Receive notifications via SMS
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inAppNotifications">In-App Notifications:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inAppNotifications" checked>
+                        <label class="form-check-label" for="inAppNotifications">
+                            Receive notifications within the application
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reminderTime">Appointment Reminder Time:</label>
+                    <input type="time" class="form-control" id="reminderTime" value="09:00">
+                </div>
+                <div class="form-group">
+                    <label for="reminderFrequency">Reminder Frequency:</label>
+                    <select class="form-control" id="reminderFrequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+                <!-- Add more notification settings options as needed -->
+            </div>
+        </div>
+
+        <!-- Add more sections for specific settings categories -->
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+      
+

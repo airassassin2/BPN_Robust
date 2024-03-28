@@ -12,9 +12,12 @@ urlpatterns = [
     path('user_login/',views.user_login,name='user_login'),
     path('logout/', views.user_logout,name="user_logout"),
     path('appointment/', views.appointment,name="appointment"),
-     path('base1/', views.dashboard,name="base1"),
+    path('base1/', views.base1,name="base1"),
     path('dashboard/', views.dashboard,name="dashboard"),
     path('adminpanel/', views.adminpanel,name="adminpanel"),
     path('calendar/', views.calender,name="calendar"),
+    path('profile/', views.profile,name="profile"),
+    path('setting/', views.setting,name="setting"),
+    path('notification/', views.notification,name="notification"),
     
 ]

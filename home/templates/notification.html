@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% block title %}Notification{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container">
+    <h1 class="mt-4 mb-4">Notifications</h1>
+    
+    <!-- Message Notifications -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <i class="far fa-envelope notification-icon"></i> Message Notifications
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">You have a new message from John Doe</li>
+                <li class="list-group-item">Meeting reminder: Tomorrow at 10:00 AM</li>
+                <!-- Add more message notifications here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Other Notifications -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-bell notification-icon"></i> Other Notifications
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">Your appointment with Dr. Smith has been confirmed</li>
+                <li class="list-group-item">New event added to your calendar: Team meeting at 3:00 PM</li>
+                <!-- Add more other notifications here -->
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+      
+
