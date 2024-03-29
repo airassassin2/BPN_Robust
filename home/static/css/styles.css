@@ -8904,7 +8904,10 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button; /* Standard */
 }
+
+
 
 button:not(:disabled),
 [type="button"]:not(:disabled),
@@ -8965,7 +8968,9 @@ legend + * {
 [type="search"] {
   outline-offset: -2px;
   -webkit-appearance: textfield;
+  appearance: textfield; /* Standard */
 }
+
 
 /* rtl:raw:
 [type="tel"],
@@ -10797,8 +10802,8 @@ textarea.form-control-lg {
   background-size: contain;
   border: 1px solid rgba(0, 0, 0, 0.25);
   appearance: none;
-  color-adjust: exact;
 }
+
 
 .form-check-input[type="checkbox"] {
   border-radius: 0.25em;
@@ -22589,7 +22594,7 @@ dl li {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: 257px;
+  width: 272px;
   height: 60px;
   border-right: 1px solid #e3e3e3;
 }
@@ -22666,7 +22671,7 @@ dl li {
   color: #9b9b9b;
   padding-left: 1.062rem;
   padding-right: 1.062rem;
-  width: calc(100% - 257px);
+  width: calc(100% - 272px);
   height: 60px;
   border-bottom: 1px solid #e3e3e3;
 }

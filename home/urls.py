@@ -19,5 +19,6 @@ urlpatterns = [
     path('profile/', views.profile,name="profile"),
     path('setting/', views.setting,name="setting"),
     path('notification/', views.notification,name="notification"),
+    path('appointment_form_modal/', views.appointment_form_modal,name="appointment_form_modal"),
     
 ]

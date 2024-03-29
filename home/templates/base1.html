@@ -26,25 +26,24 @@
 </head>
 
 <body>
-  <div class="container-scroller">
+  {% comment %} <div class="container-scroller">
     <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
           <div class="ps-lg-1">
             <div class="d-flex align-items-center justify-content-between">
               <p class="mb-0 font-weight-medium me-3 buy-now-text">Greetings, It's Nice to see you</p>
-              <a href="https://www.bootstrapdash.com/product/majestic-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
             </div>
           </div>
           <div class="d-flex align-items-center justify-content-between">
-            <a href="https://www.bootstrapdash.com/product/majestic-admin-pro/"><i class="mdi mdi-home me-3 text-white"></i></a>
+            <a href="#"><i class="mdi mdi-home me-3 text-white"></i></a>
             <button id="bannerClose" class="btn border-0 p-0">
               <i class="mdi mdi-close text-white me-0"></i>
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </div> {% endcomment %}
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
@@ -168,7 +167,11 @@
                                 <span class="nav-profile-name">Habibi</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="{% url 'setting' %}"> 
+                              <a class="dropdown-item" href="{% url 'profile' %}"> 
+                                <i class="far fa-user menu-icon"></i></i>
+                                Profile
+                            </a>  
+                              <a class="dropdown-item" href="{% url 'setting' %}"> 
                                     <i class="mdi mdi-settings text-primary"></i>
                                     Settings
                                 </a>
@@ -265,7 +268,9 @@
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
                     <i class="mdi mdi-close text-danger"></i>
                   </button>
-                  <a href="/appointment/"><button class="btn btn-primary mt-2 mt-xl-0"  >+ New Appointment</button></a>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentModal">
+                    <i class="fas fa-calendar-plus appointment-icon"></i> Book Appointment
+                </button>            
                 </div>
               </div>
             </div>
@@ -435,4 +440,5 @@
 </body>
 
 </html>
+{% include 'appointment_form_modal.html' %}
 

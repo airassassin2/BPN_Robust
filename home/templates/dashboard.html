@@ -1,20 +1,20 @@
 {% extends 'base1.html' %}
 {% block title %}
   Dashboard
-{% endblock %} 
+{% endblock %} {% endcomment %}
 {% load static %}
 {% block body %}
   <div class="row">
     <div class="col-md-7 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <p class="card-title">Appointment Details</p>
+          <p class="card-title">Appointment/Booking Details</p>
           <p class="mb-4">
             <ul>
               <li>9:00 AM, Meeting with Doctor Krishna Mehra, [Full Address] Mumbai</li>
             </ul>
           </p>
-          <h2 class="text-center mt-5">Trending Appointments</h2>
+          <h2 class="text-center mt-5">Trending Appointments/Bookings</h2>
           <div class="container">
             <canvas id="appointmentChart" width="400" height="200"></canvas>
           </div>
@@ -69,7 +69,7 @@
             </table>
           </div>
           <div class="container">
-            <h2>Restaurant Appointment</h2>
+            <h2>Restaurant Booking</h2>
             <table class="table">
               <thead>
                 <tr>
