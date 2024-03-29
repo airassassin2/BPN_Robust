@@ -195,5 +195,27 @@ const appointmentsData = {
     alert('Add Appointment functionality not implemented.');
   });
   //end here
+  // application form
+  // Function to check availability and update status
+function checkAvailability() {
+  // Perform availability check logic here
+  // For demonstration, let's assume availability is checked asynchronously
+  // Simulate a delay of 1 second
+  setTimeout(function() {
+      // Display availability status
+      var availabilityStatus = document.getElementById('availabilityStatus');
+      availabilityStatus.innerHTML = '<div class="alert alert-success" role="alert">Appointment available at selected date and time!</div>';
+  }, 1000);
+}
+
+// Attach event listener to the appointment form submit button
+document.querySelector('#appointmentForm').addEventListener('submit', function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+  
+  // Call function to check availability
+  checkAvailability();
+});
+//end application form
   
  

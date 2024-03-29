@@ -90,6 +90,8 @@ def setting(request):
  return render(request,'setting.html')
 def notification(request):  
  return render(request,'notification.html')
+def appointment_form_modal(request):  
+ return render(request,'appointment_form_modal.html')
 # def appointment(request):
 #   doc=Doctor.objects.all()
 #   return render(request,'appointment.html',{'doc': doc})   
