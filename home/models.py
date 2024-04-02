@@ -1,16 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, Group
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import Permission
 
 
-# class User(models.Model):
-#     author = models.ForeignKey(User, on_delete=models.CASCADE)
-#     fullname=models.CharField(max_length=50)
-#     mobile=models.CharField(max_length=10)
-#     username=models.EmailField()
-#     password=models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.fullname
+class Custom_User(AbstractUser):
+    username=models.CharField(max_length=100)
+    password=models.CharField(max_length=100)
+    email=models.EmailField()
+    fullname=models.CharField(max_length=100)
+    # mobile = models.CharField(max_length=20)
+    class Meta:
+        db_table = 'home_auth_user'  
+    groups = models.ManyToManyField(Group, verbose_name=_('groups'), blank=True, related_name='home_user_groups_unique')
+    user_permissions = models.ManyToManyField(Permission, verbose_name=_('user permissions'), blank=True, related_name='home_user_permissions_unique')
 
 
 
@@ -107,3 +111,44 @@ class Salon_appointment(models.Model):
 
     def __str__(self) -> str:
         return self.salon_name.salon_name +" --> "+ self.name.name
+    
+
+
+
+
+
+
+
+
+
+
+class ModalAppointment(models.Model):
+    fullname = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile = models.CharField(max_length=20)
+    gender = models.CharField(max_length=10, choices=(('male', 'Male'), ('female', 'Female'), ('other', 'Other')))
+    
+    # Define choices for booking types
+    BOOKING_CHOICES = (
+        ('doctor', 'Doctor'),
+        ('salon', 'Salon'),
+        ('spa', 'Spa'),
+        ('corporate', 'Corporate'),
+        ('government', 'Government'),
+    )
+
+    # Define foreign key fields with choices
+    booking_type = models.CharField(max_length=20, choices=BOOKING_CHOICES)
+    doctor_booking = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_appointments', null=True, blank=True)
+    salon_booking = models.ForeignKey(Salon, on_delete=models.CASCADE, related_name='salon_appointments', null=True, blank=True)
+    date = models.DateField()
+    time = models.TimeField()
+
+    def __str__(self):
+        return self.fullname
+    
+
+class happy(models.Model):
+    fullname = models.CharField(max_length=100)
+    email = models.EmailField()
+

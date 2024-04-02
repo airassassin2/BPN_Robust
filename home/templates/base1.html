@@ -164,7 +164,7 @@
                         <li class="nav-item nav-profile dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                               <img src="{% static 'images/camel.jpeg' %}" alt="profile">
-                                <span class="nav-profile-name">Habibi</span>
+                                <span class="nav-profile-name">{{ request.user.username }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                               <a class="dropdown-item" href="{% url 'profile' %}"> 
@@ -175,7 +175,7 @@
                                     <i class="mdi mdi-settings text-primary"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item">
+                                <a href="/logout" class="dropdown-item">
                                     <i class="mdi mdi-logout text-primary"></i>
                                     Logout
                                 </a>
@@ -254,7 +254,7 @@
               <div class="d-flex justify-content-between flex-wrap">
                 <div class="d-flex align-items-end flex-wrap">
                   <div class="me-md-3 me-xl-5">
-                    <h2>Welcome back, Habibi</h2>
+                    <h2>Welcome back, {{ request.user.username }}</h2>
                     <p class="mb-md-0">Your Appointment Dashboard</p>
                   </div>
                   <div class="d-flex">

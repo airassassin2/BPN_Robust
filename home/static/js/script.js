@@ -194,6 +194,9 @@ const appointmentsData = {
   document.getElementById('add-appointment').addEventListener('click', function() {
     alert('Add Appointment functionality not implemented.');
   });
+
+
+  
   //end here
   // application form
   // Function to check availability and update status

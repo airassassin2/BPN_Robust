@@ -5,14 +5,41 @@
 
 {% block body %}
 <hr>
+<script>
+  function hideAlert() {
+  var alertElement = document.querySelector('.alert');
+  if (alertElement) {
+      alertElement.style.display = 'none';
+  }
+}
+setTimeout(hideAlert, 5000);
+</script>
+
+
+
 {% if messages %}
- <div class="alert alert-primary" role="alert">
-   <ul class="messages">
-     {% for message in messages %}
-     {{ message }}
-     {% endfor %}
- </div>
- {% endif %} 
+<div class="alert alert-primary" role="alert">
+<ul class="messages">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+</div>
+{% endif %}
+<style>
+  .alert-primary {
+    height: 51px;
+    /* text-align: center; */
+    margin: auto;
+    display: flex;
+    /* align-items: center; */
+    width: 30em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+  }
+  
+</style>
  
 
   <section class="slider_section">

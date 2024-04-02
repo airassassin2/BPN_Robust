@@ -8,7 +8,7 @@
     <img src="{% static 'images/camel.jpeg' %}" alt="Profile Picture" class="profile-img"/>
     <div class="profile-info">
       <h2>User Profile</h2>
-      <p><strong>Name:</strong> Habibi</p>
+      <p><strong>Name:</strong> {{ request.user.username }}</p>
       <p><strong>Email:</strong> Habibi@example.com</p>
       <p><strong>Phone:</strong> +1234567890</p>
       <p><strong>Address:</strong> Saudi Arabia</p>
