@@ -220,5 +220,12 @@ document.querySelector('#appointmentForm').addEventListener('submit', function(e
   checkAvailability();
 });
 //end application form
+
+//Book Appointment dropdown
+function selectOption(option) {
+  console.log("Selected option: " + option);
+  // koi action perform kro yaha if koi option select ho
+}
+//
   
  

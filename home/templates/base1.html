@@ -20,7 +20,9 @@
   <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 </head>
@@ -268,9 +270,20 @@
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
                     <i class="mdi mdi-close text-danger"></i>
                   </button>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentModal">
+                  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentModal">
                     <i class="fas fa-calendar-plus appointment-icon"></i> Book Appointment
-                </button>            
+                </button> -->
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-calendar-plus appointment-icon"></i> Book Appointment
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="doctor_appointment.html">Doctor</a>
+                    <a class="dropdown-item" href="salon_appointment.html">Salon</a>
+                    <a class="dropdown-item" href="restaurant_appointment.html">Restaurant</a>
+                  </div>
+                </div> 
+                
                 </div>
               </div>
             </div>
@@ -436,6 +449,13 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
   
 </body>
 
