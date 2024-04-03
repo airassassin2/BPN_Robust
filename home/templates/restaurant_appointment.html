@@ -40,12 +40,12 @@ setTimeout(hideAlert, 5000);
  
 
     
-    <form class="card p-4 mx-auto" method="post" action="{% url 'appointment' %}">
+    <form class="card p-4 mx-auto" method="post" action="{% url 'restaurant_appointment' %}">
         {% csrf_token %}
         <select class="form-select" name="doctor" aria-label="Default select example">
-            <option selected>Select Doctor</option>
+            <option selected>Select Restaurant</option>
             {% for doctor in doctors %}
-            <option  value="{{ doctor.doctor_name }}">{{ doctor.doctor_name }}</option>
+            <option  value="{{ doctor.restaurant_name }}">{{ doctor.restaurant_name }}</option>
             {% endfor %}
         </select>
       

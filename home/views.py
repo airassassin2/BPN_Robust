@@ -171,9 +171,69 @@ def appointment(request):
     doctors = Doctor.objects.all()
     return render(request, "appointment.html", {"doctors": doctors})
 
-from django.shortcuts import render, redirect
-from .models import Doctor, Patient, ModalAppointment
-from django.core.exceptions import ObjectDoesNotExist
+def restaurant_appointment(request):
+    if request.method == "POST":
+        doctor_name = request.POST.get("doctor")
+        patient_name = request.POST.get("name")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+
+        # Check if the Doctor and Patient instances exist
+        try:
+            doctor = Restaurant.objects.get(restaurant_name=doctor_name)
+            patient, created = Restaurant_user.objects.get_or_create(name=patient_name)
+
+        except ObjectDoesNotExist:
+            return render(
+                request,
+                "restaurant_appointment.html",
+                {"message": "Restaurant or User does not exist"},
+            )
+
+        # Create and save the Appointment instance
+        appointment = Restaurant_appointment(
+            name=patient, restaurant_name=doctor, appointment_date=date, appointment_time=time
+        )
+        appointment.save()
+        messages.success(request, "Appointment for restaurant booked successfully.")
+
+        return redirect("restaurant_appointment")
+    doctors = Restaurant.objects.all()
+    return render(request, "restaurant_appointment.html", {"doctors": doctors})
+
+def salon_appointment(request):
+    if request.method == "POST":
+        doctor_name = request.POST.get("doctor")
+        patient_name = request.POST.get("name")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+
+        # Check if the Doctor and Patient instances exist
+        try:
+            doctor = Salon.objects.get(salon_name=doctor_name)
+            patient, created = Salon_user.objects.get_or_create(name=patient_name)
+
+        except ObjectDoesNotExist:
+            return render(
+                request,
+                "salon_appointment.html",
+                {"message": "Salon or User does not exist"},
+            )
+
+        # Create and save the Appointment instance
+        appointment = Salon_appointment(
+            name=patient, salon_name=doctor, appointment_date=date, appointment_time=time
+        )
+        appointment.save()
+        messages.success(request, "Appointment for salon booked successfully.")
+
+        return redirect("salon_appointment")
+    doctors = Salon.objects.all()
+    return render(request, "salon_appointment.html", {"doctors": doctors})
+
+
+
+
 def appointment_form_modal(request):
     if request.method == "POST":
         # Extract data from the form
@@ -216,7 +276,7 @@ def appointment_form_modal(request):
 
         return redirect("appointment_form_modal")
 
-    doctors = Doctor.objects.all()
+    doctors = Restaurant.objects.all()
     restaurants = Restaurant.objects.all()
     salons = Salon.objects.all()
     return render(request, "appointment_form_modal.html", {"doctors": doctors, "restaurants": restaurants, "salons": salons})
