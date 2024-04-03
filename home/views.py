@@ -113,7 +113,12 @@ def notification(request):
 
 def appointment_form_modal(request):
     return render(request, "appointment_form_modal.html")
-
+def restaurant_appointment(request):
+    return render(request, "restaurant_appointment.html")
+def salon_appointment(request):
+    return render(request, "salon_appointment.html")
+def doctor_appointment(request):
+    return render(request, "doctor_appointment.html")
 
 # def appointment(request):
 #   doc=Doctor.objects.all()

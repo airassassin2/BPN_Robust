@@ -278,10 +278,11 @@
                     <i class="fas fa-calendar-plus appointment-icon"></i> Book Appointment
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="doctor_appointment.html">Doctor</a>
-                    <a class="dropdown-item" href="salon_appointment.html">Salon</a>
-                    <a class="dropdown-item" href="restaurant_appointment.html">Restaurant</a>
-                  </div>
+                    <a class="dropdown-item" href="{% url 'doctor_appointment' %}">Doctor</a>
+                    <a class="dropdown-item" href="{% url 'salon_appointment' %}">Salon</a>
+                    <a class="dropdown-item" href="{% url 'restaurant_appointment' %}">Restaurant</a>
+                </div>
+                
                 </div> 
                 
                 </div>
