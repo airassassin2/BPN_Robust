@@ -165,6 +165,7 @@ def appointment(request):
             patient=patient, doctor=doctor, appointment_date=date, appointment_time=time
         )
         appointment.save()
+        messages.success(request, "Appointment for Doctor booked successfully.")
 
         return redirect("appointment")
     doctors = Doctor.objects.all()
