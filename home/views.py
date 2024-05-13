@@ -117,6 +117,8 @@ def restaurant_appointment(request):
     return render(request, "restaurant_appointment.html")
 def salon_appointment(request):
     return render(request, "salon_appointment.html")
+def dash_appointment(request):
+    return render(request, "dash_appointment.html")
 
 
 # def appointment(request):

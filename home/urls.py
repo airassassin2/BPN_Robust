@@ -24,4 +24,5 @@ urlpatterns = [
     path('appointment_form_modal/', views.appointment_form_modal,name="appointment_form_modal"),
     path('salon_appointment/', views.salon_appointment,name="salon_appointment"),
     path('restaurant_appointment/', views.restaurant_appointment,name="restaurant_appointment"),
+    path('dash_appointment/', views.dash_appointment,name="dash_appointment"),
 ]

@@ -1,0 +1,309 @@
+{% extends 'base1.html' %}
+{% block title %}Appointments{% endblock %}
+{% block body %}
+{% load static %}
+
+
+<style>
+    /* Optional CSS styles for better presentation */
+    .icon {
+      font-size: 48px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .icon:hover {
+      color: #007bff; /* Change color on hover */
+    }
+
+    .card {
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 18px;
+    }
+
+    .btn {
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4 text-center">Book Your Appointments</h1>
+    
+    <div class="row">
+      <!-- Doctors -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-user-md mb-3"></i>
+            <h5 class="card-title">Doctors</h5>
+            <p class="card-text">Find the right doctor for your needs.</p>
+            <a href="#" class="btn btn-primary">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dining -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-utensils mb-3"></i>
+            <h5 class="card-title">Dining</h5>
+            <p class="card-text">Discover delicious dining options.</p>
+            <a href="#" class="btn btn-primary">Book Table</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Venues -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-calendar-alt mb-3"></i>
+            <h5 class="card-title">Event Venues</h5>
+            <p class="card-text">Find venues for your special events.</p>
+            <a href="#" class="btn btn-primary">Book Venue</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salon -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-cut mb-3"></i>
+            <h5 class="card-title">Salon</h5>
+            <p class="card-text">Book appointments for salon services.</p>
+            <a href="#" class="btn btn-primary">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spa -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-spa mb-3"></i>
+            <h5 class="card-title">Spa</h5>
+            <p class="card-text">Relax and rejuvenate at a spa.</p>
+            <a href="#" class="btn btn-primary">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotels -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-hotel mb-3"></i>
+            <h5 class="card-title">Hotels</h5>
+            <p class="card-text">Find accommodations for your stay.</p>
+            <a href="#" class="btn btn-primary">Book Room</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rental Cars -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-car mb-3"></i>
+            <h5 class="card-title">Rental Cars</h5>
+            <p class="card-text">Rent a car for your travel needs.</p>
+            <a href="#" class="btn btn-primary">Rent Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flight -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-plane mb-3"></i>
+            <h5 class="card-title">Flights</h5>
+            <p class="card-text">Book your flights for travel.</p>
+            <a href="#" class="btn btn-primary">Book Flight</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trips and Vacations -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-suitcase mb-3"></i>
+            <h5 class="card-title">Trips and Vacations</h5>
+            <p class="card-text">Plan your dream vacation.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conferences -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-users mb-3"></i>
+            <h5 class="card-title">Conferences</h5>
+            <p class="card-text">Attend conferences and seminars.</p>
+            <a href="#" class="btn btn-primary">Register Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concerts -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-music mb-3"></i>
+            <h5 class="card-title">Concerts</h5>
+            <p class="card-text">Get tickets to upcoming concerts.</p>
+            <a href="#" class="btn btn-primary">Buy Tickets</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitness Classes -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-dumbbell mb-3"></i>
+            <h5 class="card-title">Fitness Classes</h5>
+            <p class="card-text">Join fitness classes for a healthy lifestyle.</p>
+            <a href="#" class="btn btn-primary">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gym -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-dumbbell mb-3"></i>
+            <h5 class="card-title">Gym</h5>
+            <p class="card-text">Find a gym for your workout routine.</p>
+            <a href="#" class="btn btn-primary">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yoga -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-spa mb-3"></i>
+            <h5 class="card-title">Yoga Classes</h5>
+            <p class="card-text">Relax your mind and body with yoga.</p>
+            <a href="#" class="btn btn-primary">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lawyers -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-balance-scale mb-3"></i>
+            <h5 class="card-title">Lawyers</h5>
+            <p class="card-text">Get legal advice from experienced lawyers.</p>
+            <a href="#" class="btn btn-primary">Consult Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accountants -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-calculator mb-3"></i>
+            <h5 class="card-title">Accountants</h5>
+            <p class="card-text">Manage your finances with professional accountants.</p>
+            <a href="#" class="btn btn-primary">Consult Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Renovation -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-tools mb-3"></i>
+            <h5 class="card-title">Home Renovation</h5>
+            <p class="card-text">Renovate your home with expert services.</p>
+            <a href="#" class="btn btn-primary">Request Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plumber -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-wrench mb-3"></i>
+            <h5 class="card-title">Plumbers</h5>
+            <p class="card-text">Fix plumbing issues in your home.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electrician -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-bolt mb-3"></i>
+            <h5 class="card-title">Electricians</h5>
+            <p class="card-text">Get electrical services for your home.</p>
+            <a href="#" class="btn btn-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-film mb-3"></i>
+            <h5 class="card-title">Movies</h5>
+            <p class="card-text">Enjoy the latest movies in theaters.</p>
+            <a href="#" class="btn btn-primary">Buy Tickets</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Park -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="icon fas fa-tree mb-3"></i>
+            <h5 class="card-title">Theme Parks</h5>
+            <p class="card-text">Have fun at exciting theme parks.</p>
+            <a href="#" class="btn btn-primary">Buy Tickets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+      
+
