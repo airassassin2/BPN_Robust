@@ -1,0 +1,87 @@
+
+.container1 {
+    display: flex;
+    max-width: 0px;
+    margin: 0 auto;
+}
+
+
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    min-width: 200px;
+    height: 100vh; /* Occupy full height of the viewport */
+    overflow-y: auto; /* Add scrollbar if content exceeds viewport height */
+}
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.sidebar a:hover {
+    color: #ccc;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.sidebar ul li.active {
+    background-color: #555;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.appointments {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.appointments h2 {
+    margin-top: 0;
+}
+
+#addAppointmentBtn {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addAppointmentBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        min-width: auto;
+        height: auto;
+        overflow-y: visible;
+    }
+}

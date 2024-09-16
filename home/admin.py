@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from home.models import *
-# admin.site.register(User)
+admin.site.register(Custom_User)
 
 
 
@@ -17,3 +17,7 @@ admin.site.register(Restaurant_appointment)
 admin.site.register(Salon)
 admin.site.register(Salon_user)
 admin.site.register(Salon_appointment)
+
+admin.site.register(ModalAppointment)
+
+

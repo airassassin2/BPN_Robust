@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+{% block title %}Profile{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container">
+  <div class="profile-card bg-white p-4">
+   
+    <img src="{% static 'images/camel.jpeg' %}" alt="Profile Picture" class="profile-img"/>
+    <div class="profile-info">
+      <h2>User Profile</h2>
+      <p><strong>Name:</strong> {{ request.user.username }}</p>
+      <p><strong>Email:</strong> Habibi@example.com</p>
+      <p><strong>Phone:</strong> +1234567890</p>
+      <p><strong>Address:</strong> Saudi Arabia</p>
+      <h3>Appointments</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Upcoming Appointments</h4>
+          <ul class="appointment-list">
+            <li class="appointment-list-item">Appointment 1 - Date & Time</li>
+            <li class="appointment-list-item">Appointment 2 - Date & Time</li>
+            <li class="appointment-list-item">Appointment 3 - Date & Time</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4>Appointment History</h4>
+          <ul class="appointment-list">
+            <li class="appointment-list-item">Appointment 4 - Date & Time</li>
+            <li class="appointment-list-item">Appointment 5 - Date & Time</li>
+            <li class="appointment-list-item">Appointment 6 - Date & Time</li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary edit-profile-btn">Edit Profile</button>
+        <button class="btn btn-danger delete-account-btn">Delete Account</button>
+        <button class="btn btn-warning change-password-btn">Change Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+      
+

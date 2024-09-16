@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    
+
+  
+<script>
+  function hideAlert() {
+  var alertElement = document.querySelector('.alert');
+  if (alertElement) {
+      alertElement.style.display = 'none';
+  }
+}
+setTimeout(hideAlert, 5000);
+</script>
+
+
+
+{% if messages %}
+<div class="alert alert-primary" role="alert">
+<ul class="messages">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+</div>
+{% endif %}
+<style>
+  .alert-primary {
+    height: 51px;
+    margin: auto;
+    display: flex;
+    width: 30em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+  }
+  
+</style>
+ 
+
+    
+    <form class="card p-4 mx-auto" method="post" action="{% url 'salon_appointment' %}">
+        {% csrf_token %}
+        <select class="form-select" name="doctor" aria-label="Default select example">
+            <option selected>Select Salon</option>
+            {% for doctor in doctors %}
+            <option  value="{{ doctor.salon_name }}">{{ doctor.salon_name }}</option>
+            {% endfor %}
+        </select>
+      
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Enter your name</label>
+          <input name="name" type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Date</label>
+          <input type="date" name="date" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Time</label>
+          <input type="time" name="time" class="form-control" id="exampleInputPassword1">
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock body %}

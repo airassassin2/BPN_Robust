@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <h2 style="color: white;">Doctor Appointment</h2>
+    <table class="table" style="color: white;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Doctor</th>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for doctor in doctors %}
+            <tr>
+                
+                <td>{{ forloop.counter }}</td>
+                <td>{{ doctor.doctor }}</td>
+                <td>{{ doctor.patient }}</td>
+                <td>{{ doctor.appointment_date }}</td>
+                <td>{{ doctor.appointment_time }}</td>
+               
+                <!-- Add more columns as needed -->
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
